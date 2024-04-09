@@ -1,0 +1,1 @@
+{"name":"Local: K","url":"/home/tienle/Documents/cf/qhd/K.cpp","tests":[{"id":1712651394633,"input":"10\n1 2 3 4 5 4 3 2 1 10\n","output":"9"},{"id":1712651404926,"input":"19\n1 2 3 2 1 2 3 4 3 2 1 5 4 1 2 3 2 2 1","output":"9"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/tienle/Documents/cf/qhd/K.cpp","group":"local","local":true}

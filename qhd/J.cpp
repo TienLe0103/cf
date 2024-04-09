@@ -34,7 +34,7 @@
 #define         frrd(x, l, r)       frd(x, (l) + 1, (r))
 #define         cs                  const
 
-cs in mxn = 1e6 +5;
+cs in mxn = 2e6 +5;
 cs in o = -0x7fffffff - 1;
 cs in oo = 0x7fffffff;
 cs in mod = 14062008;
@@ -51,20 +51,29 @@ template <class T> inline bool minn(T& a, const T& b) { return (a > b) ? a = b, 
 template <class T> inline bool maxx(T& a, const T& b) { return (a < b) ? a = b, true : false; }
 
 // *...VAR-FUNC...* //
-in n, a, b, c;
-in d[mxn], f[mxn];
+in n;
+// in a[mxn], f[mxn];
+bool prime[mxn];
+// priority_queue<in> pq;
+
+void sang() {
+    frr (i, 2, 2e6) prime[i] = true;
+    frr (i, 2, sqrt(2e6))
+        if (prime[i] == true)
+            for (in j = i * i; j <= 2e6; j += i)
+                prime[j] = false;
+}
 
 // *...Main...* //
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> n >> a >> b >> c;
-    frr (i, 1, n) cin >> d[i];
-    frr (i, 1, n) {
-        if (d[i] == 0) f[i] = f[i - 1];
-        else 
-            f[i] = min({f[i - 1] + a,
-                        f[max(0LL, i - 7)] + b,
-                        f[max(0LL, i - 30)] + c});
-    }
-    cout << f[n];
+    sang();
+    cin >> n;
+    vi a(n); for (in &x : a) cin >> x;
+    vi f(n, 1);
+    fr (i, 0, n) 
+        fr (j, 0, i) 
+            if (prime[a[i] + a[j]] == true)
+                f[i] = max(f[i], f[j] + 1);
+    cout << *max_element(all(f));
 }

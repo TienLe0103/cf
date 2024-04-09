@@ -1,5 +1,5 @@
 /*
-    @date: 07 / 04 / 2024
+    @date: 09 / 04 / 2024
     @tienle0103
 */
 
@@ -51,20 +51,28 @@ template <class T> inline bool minn(T& a, const T& b) { return (a > b) ? a = b, 
 template <class T> inline bool maxx(T& a, const T& b) { return (a < b) ? a = b, true : false; }
 
 // *...VAR-FUNC...* //
-in n, a, b, c;
-in d[mxn], f[mxn];
+in n;
+in a[mxn], l[mxn], r[mxn];
 
 // *...Main...* //
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> n >> a >> b >> c;
-    frr (i, 1, n) cin >> d[i];
+    cin >> n;
+    frr (i, 1, n) cin >> a[i];
     frr (i, 1, n) {
-        if (d[i] == 0) f[i] = f[i - 1];
-        else 
-            f[i] = min({f[i - 1] + a,
-                        f[max(0LL, i - 7)] + b,
-                        f[max(0LL, i - 30)] + c});
+        l[i] = 1;
+        frr (j, 1, i - 1)
+            if (a[i] > a[j])    
+                l[i] = max(l[i], l[j] + 1);
     }
-    cout << f[n];
+    frrd(i, n, 1) {
+        r[i] = 1;
+        frr (j, i + 1, n) 
+            if (a[i] > a[j])
+                r[i] = max(r[i], r[j] + 1);
+    }
+    in res = o;
+    frr (i, 1, n) 
+        res = max(res, 2 * min(l[i], r[i]) - 1);
+    cout << res;
 }

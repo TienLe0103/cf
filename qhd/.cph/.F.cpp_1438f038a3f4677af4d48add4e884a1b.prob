@@ -1,0 +1,1 @@
+{"name":"Local: F","url":"/home/tienle/Documents/cf/qhd/F.cpp","tests":[{"id":1712506379470,"input":"8 2 7 15\n1 0 0 1 0 1 1 1\n","output":"9"},{"id":1712506384266,"input":"8 2 7 8\n1 0 0 1 0 1 1 1","output":"8"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/tienle/Documents/cf/qhd/F.cpp","group":"local","local":true}

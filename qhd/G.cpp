@@ -1,5 +1,5 @@
 /*
-    @date: 07 / 04 / 2024
+    @date: 04 / 04 / 2024
     @tienle0103
 */
 
@@ -37,7 +37,7 @@
 cs in mxn = 1e6 +5;
 cs in o = -0x7fffffff - 1;
 cs in oo = 0x7fffffff;
-cs in mod = 14062008;
+cs in mod = 1e9 + 7;
 
 using namespace std;
 
@@ -51,20 +51,23 @@ template <class T> inline bool minn(T& a, const T& b) { return (a > b) ? a = b, 
 template <class T> inline bool maxx(T& a, const T& b) { return (a < b) ? a = b, true : false; }
 
 // *...VAR-FUNC...* //
-in n, a, b, c;
-in d[mxn], f[mxn];
+in t;
+in f[mxn];
+
+void phnm() {
+    f[1] = 1;
+    f[2] = 2;
+    frr (i, 3, 1e6) 
+        f[i] = (f[i - 1] + f[i - 2]) % mod;
+}
 
 // *...Main...* //
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> n >> a >> b >> c;
-    frr (i, 1, n) cin >> d[i];
-    frr (i, 1, n) {
-        if (d[i] == 0) f[i] = f[i - 1];
-        else 
-            f[i] = min({f[i - 1] + a,
-                        f[max(0LL, i - 7)] + b,
-                        f[max(0LL, i - 30)] + c});
+    phnm();
+    cin >> t;
+    while (t--) {
+        in n; cin >> n;
+        cout << f[n] << '\n';
     }
-    cout << f[n];
 }
