@@ -51,16 +51,24 @@ template <class T> inline bool minn(T& a, const T& b) { return (a > b) ? a = b, 
 template <class T> inline bool maxx(T& a, const T& b) { return (a < b) ? a = b, true : false; }
 
 // *...VAR-FUNC...* //
-in n;
+in n, res = 0;
+vector<bool> check(1e7, true);
+
+void sang(in x) {
+    check[0] = check[1] = false;
+    for (in i = 4; i <= x; i += 2) check[i] = false;
+    for (in i = 3; i <= sqrt(x); i += 2)
+        if (check[i])
+            for (in j = i * i; j <= x; j += i * 2)
+                check[j] = false;
+}
 
 // *...Main...* //
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     cin >> n;
-    vi a(n), f(n); 
-    fr (i, 0, n) 
-        cin >> a[i],
-        f[i] = max(a[i], f[i - 1] + a[i]);
-    f[0] = a[0];
-    cout << *max_element(all(f));
+    vi a(n); for (in &x : a) cin >> x;
+    sang(*max_element(all(a)));
+    for (in x : a) if (check[x]) res++;
+    cout << res;
 }

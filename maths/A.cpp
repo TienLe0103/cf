@@ -53,14 +53,17 @@ template <class T> inline bool maxx(T& a, const T& b) { return (a < b) ? a = b, 
 // *...VAR-FUNC...* //
 in n;
 
+bool check(in x) {
+    if (x < 2) return (false);
+    for (in i = 2; i <= sqrt(x); i++) if (x % i == 0) return (false);
+    return (true);    
+}
+
 // *...Main...* //
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     cin >> n;
-    vi a(n), f(n); 
-    fr (i, 0, n) 
-        cin >> a[i],
-        f[i] = max(a[i], f[i - 1] + a[i]);
-    f[0] = a[0];
-    cout << *max_element(all(f));
-}
+    frr (i, 1, n) 
+        if (check(i))
+            cout << i << ' ';
+}   

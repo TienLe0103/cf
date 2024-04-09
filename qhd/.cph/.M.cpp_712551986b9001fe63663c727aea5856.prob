@@ -1,0 +1,1 @@
+{"name":"Local: M","url":"/home/tienle/Documents/cf/qhd/M.cpp","tests":[{"id":1712652636434,"input":"6\n2 -10 6 -5 2 4","output":"7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/tienle/Documents/cf/qhd/M.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: A","url":"/home/tienle/Documents/cf/maths/A.cpp","tests":[{"id":1712671046353,"input":"15","output":"2 3 5 7 11 13"},{"id":1712676591130,"input":"18","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/tienle/Documents/cf/maths/A.cpp","group":"local","local":true}

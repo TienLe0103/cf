@@ -34,7 +34,7 @@
 #define         frrd(x, l, r)       frd(x, (l) + 1, (r))
 #define         cs                  const
 
-cs in mxn = 1e6 +5;
+cs in mxn = 1e7 + 5;
 cs in o = -0x7fffffff - 1;
 cs in oo = 0x7fffffff;
 cs in mod = 14062008;
@@ -53,14 +53,22 @@ template <class T> inline bool maxx(T& a, const T& b) { return (a < b) ? a = b, 
 // *...VAR-FUNC...* //
 in n;
 
+void sang(in n) {
+    vector<bool> check(n + 5, true);
+    check[0] = check[1] = false;
+    for (in i = 4; i <= n; i += 2) check[i] = false;
+    for (in i = 3; i <= sqrt(n); i += 2)
+        if (check[i])
+            for (in j = i * i; j <= n; j += i * 2)
+                check[j] = false;
+    frr (i, 0, n)
+        if (check[i])
+            cout << i << ' ';
+}
+
 // *...Main...* //
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     cin >> n;
-    vi a(n), f(n); 
-    fr (i, 0, n) 
-        cin >> a[i],
-        f[i] = max(a[i], f[i - 1] + a[i]);
-    f[0] = a[0];
-    cout << *max_element(all(f));
+    sang(n);
 }
