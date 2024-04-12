@@ -1,0 +1,1 @@
+{"name":"Local: G","url":"d:\\aiosima\\cf\\maths\\G.cpp","tests":[{"id":1712822276320,"input":"10 50","output":"11 23 29 41 43 47"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\maths\\G.cpp","group":"local","local":true}

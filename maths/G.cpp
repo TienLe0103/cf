@@ -1,5 +1,5 @@
 /*
-    @date: 09 / 04 / 2024
+    @date: 11 / 04 / 2024
     @tienle0103
 */
 
@@ -18,10 +18,10 @@
 #define         in                  long long
 #define         db                  double
 #define         str                 string
-#define         vi                  vector < in >
-#define         gi                  greater < in >
-#define         mii                 map < in, in >
-#define         pii                 pair < in, in >
+#define         vi                  vector<in>
+#define         gi                  greater<in>
+#define         mii                 map<in, in>
+#define         pii                 pair<in, in>
 #define         fi                  first
 #define         se                  second
 #define         all(x)              x.begin(), x.end()
@@ -51,37 +51,32 @@ template <class T> inline bool minn(T& a, const T& b) { return (a > b) ? a = b, 
 template <class T> inline bool maxx(T& a, const T& b) { return (a < b) ? a = b, true : false; }
 
 // *...VAR-FUNC...* //
-in n;
-vector < bool > prime(1e7, true);
-deque < in > phnm;
+in l, r;
+vector<bool> prime(1e7 + 5, true);
 
-void sang() {
+void sang(in n) {
     prime[0] = prime[1] = false;
-    for (in i = 4; i <= 1e7; i += 2) prime[i] = false;
-    for (in i = 3; i <= sqrt(1e7); i += 2)
+    for (in i = 4; i <= n; i += 2) prime[i] = false;
+    for (in i = 3; i <= sqrt(n); i += 2)
         if (prime[i])
-            for (in j = i * i; j <= 1e7; j += i * 2)
+            for (in j = i * i; j <= n; j += i * 2)
                 prime[j] = false;
+}
+
+in sum(in x) {
+    in res = 0;
+    while (x != 0) {
+        res += x % 10;
+        x /= 10;
+    }
+    return res;
 }
 
 // *...Main...* //
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    sang();
-    cin >> n;
-    vi a(n), my;
-    for (in &x : a) {
-        cin >> x;
-        if (prime[x]) my.push_back(x); 
-    }
-    if (my.empty()) {
-        cout << "-1";
-        return 0;
-    }
-    sort(all(my), gi());
-    fr (i, 0, my.size()) {
-        if (i % 2 == 0) phnm.push_back(my[i]);
-        else phnm.push_front(my[i]);
-    }
-    for (in m : phnm) cout << m << ' ';
+    cin >> l >> r;
+    sang(r);
+    frr (i, l, r) 
+        if (prime[i] && prime[sum(i)]) cout << i << ' ';       
 }
