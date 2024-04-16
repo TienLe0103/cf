@@ -1,5 +1,5 @@
 /*
-    @date: 12 / 04 / 2024
+    @date: 16 / 04 / 2024
     @tienle0103
 */
 
@@ -51,23 +51,18 @@ template <class T> inline bool minn(T& a, const T& b) { return (a > b) ? a = b, 
 template <class T> inline bool maxx(T& a, const T& b) { return (a < b) ? a = b, true : false; }
 
 // *...VAR-FUNC...* //
-in phnm;
-
-void uoc(in x) {
-    in count = 0;
-    for (in i = 1; i <= sqrt(x); i++)
-        if (x % i == 0) {
-            count++;
-            in tmp = x / i;
-            if (tmp != i)
-                count++;
-        }
-    cout << count;
-}
+in n, k, res = 0;
 
 // *...Main...* //
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> phnm;
-    uoc(phnm);
+    cin >> n >> k;
+    vi a(n); for (in &x : a) cin >> x;
+    frr (i, 0, n - k) {
+        in g = a[i];
+        frr (j, i, i + k - 1)
+            g = __gcd(g, a[j]);
+        res = max(g, res);
+    }
+    cout << res;
 }

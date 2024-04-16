@@ -1,5 +1,5 @@
 /*
-    @date: 12 / 04 / 2024
+    @date: 16 / 04 / 2024
     @tienle0103
 */
 
@@ -30,7 +30,7 @@
 #define         sg(a, n)            sort(a, a + n, greater<in>())
 #define         fr(x, l, r)         for (in x = (l); x < (r); ++x)
 #define         frd(x, l, r)        for (in x = (l) - 1; x > (r) - 1; --x)
-#define         frr(x, l, r)        fr (x, (l), (r) + 1)
+#define         frr(x, l, r)        for (in x = (l); x <= (r); ++x)
 #define         frrd(x, l, r)       frd(x, (l) + 1, (r))
 #define         cs                  const
 
@@ -52,11 +52,21 @@ template <class T> inline bool maxx(T& a, const T& b) { return (a < b) ? a = b, 
 
 // *...VAR-FUNC...* //
 in n;
-
-
+priority_queue<in, vi, gi> pq;
 
 // *...Main...* //
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     cin >> n;
+    frr (i, 1, sqrt(n))
+        if (n % i == 0) {
+            pq.push(i);
+            in tmp = n / i;
+            if (tmp != i)   
+                pq.push(tmp);
+        }
+    while (!pq.empty()) {
+        cout << pq.top() << ' ';
+        pq.pop();
+    }
 }
