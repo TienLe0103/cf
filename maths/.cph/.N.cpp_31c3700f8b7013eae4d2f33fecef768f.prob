@@ -1,0 +1,1 @@
+{"name":"Local: N","url":"d:\\aiosima\\cf\\maths\\N.cpp","tests":[{"id":1713946201650,"input":"24","output":"3"},{"id":1713946209905,"input":"100","output":"2"},{"id":1713946212718,"input":"30","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\maths\\N.cpp","group":"local","local":true}

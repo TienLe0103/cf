@@ -1,5 +1,5 @@
 /*
-    @date: 23 / 04 / 2024
+    @date: 24 / 04 / 2024
     @tienle0103
 */
 
@@ -34,11 +34,10 @@ cs in mxn = 1e6 +5;
 cs in oo = 0x7fffffff;
 cs in mod = 14062008;
 
-in k, a, b;
+in a, b, x, y;
 
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> k >> a >> b;
-    cout << b / k - (a - 1) / k;
-}   
-// O(1)
+    cin >> a >> b >> x >> y;
+    
+}

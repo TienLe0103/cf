@@ -1,1 +1,1 @@
-{"name":"Local: V","url":"d:\\aiosima\\cf\\maths\\V.cpp","tests":[{"id":1713282656177,"input":"3 6 14\n","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\maths\\V.cpp","group":"local","local":true}
+{"name":"Local: V","url":"d:\\aiosima\\cf\\maths\\V.cpp","tests":[{"id":1713282656177,"input":"3 6 14","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\maths\\V.cpp","group":"local","local":true}

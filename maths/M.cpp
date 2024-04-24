@@ -39,11 +39,13 @@ in n, res = 0;
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     cin >> n;
-    frr (i, 2, n) 
+    frr (i, 2, sqrt(n)) 
         if (n % i == 0) {
             res++;
-            while (n % i == 0)
+            while (n % i == 0) 
                 n /= i;
         }
+    if (n != 1) res++;
     cout << res;
 }
+// O(sqrt(n))
