@@ -34,24 +34,19 @@ cs in mxn = 1e6 +5;
 cs in oo = 0x7fffffff;
 cs in mod = 14062008;
 
-in m, n, x, y;
-
-in gcd(in a, in b) {
-    while (b != 0) {
-        in tmp = b;
-        b = a % b;
-        a = tmp;
-    }
-    return a;
-}
-
-in solve(in a, in b, in x, in y) {
-    in lcm = (x * y) / gcd(x, y);
-    return b / lcm - (a - 1) / lcm;
-}
-
+in r;
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> m >> n >> x >> y;
-    cout << solve(m, n, x, y);
+    cin >> r;
+    // cout << (r / 3 * (3 + r) / 2) - (r / 15 * (15 + r)) / 2;
+    in res = 0;
+    frr (i, 1, r) 
+        if (i % 3 == 0 && i % 5 != 0)
+            res += i;
+    cout << res;
 }
+
+/*
+933982460
+116309764433692728
+*/

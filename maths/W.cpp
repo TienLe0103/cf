@@ -36,8 +36,22 @@ cs in mod = 14062008;
 
 in a, b, x, y;
 
+in gcd(in a, in b) {
+    while (b != 0) {
+        in tmp = b;
+        b = a % b;
+        a = tmp;
+    }
+    return a;
+}
+
+in solve(in a, in b, in x, in y) {
+    in lcm = (x * y) / gcd(x, y);
+    return b / x + b / y - b / lcm - (a - 1) / x - (a - 1) / y + (a - 1) / lcm;
+}
+
 signed main() {
-    ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+    cin.tie(nullptr); cout.tie(nullptr); ios_base::sync_with_stdio(false);
     cin >> a >> b >> x >> y;
-    
+    cout << solve(a, b, x, y);
 }
