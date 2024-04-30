@@ -1,5 +1,5 @@
 /*
-    @date: 25 / 04 / 2024
+    @date: 30 / 04 / 2024
     @tienle0103
 */
 
@@ -34,30 +34,21 @@ cs in mxn = 1e6 +5;
 cs in oo = 0x7fffffff;
 cs in mod = 14062008;
 
-in n, res = 0;
-
-in gcd(in a, in b) {
-    while (b != 0) {
-        in tmp = b;
-        b = a % b;
-        a = tmp;
-    }
-    return a;
-}
-
-in lcm(in a, in b) {
-    return a * b / gcd(a, b);
-}
+in t;
 
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> n;
-    // in x = 0;
-    for (in i = 1; i <= n / 2; i ++) {
-        res = max(res, lcm(i, n - i));
-        // if (res == lcm(i, n - i))
-        //     x = i;
+    cin >> t;
+    while (t--) {
+        in n, m; cin >> n >> m;
+        in res = 0;
+        frr (i, 1, m) {
+            in j = i;
+            while (j <= n) {
+                if ((i + j) % (i * i) == 0)
+                    res++;
+                j += i;
+            }
+        } cout << res << '\n';
     }
-    // cout << x << ' ' << n - x << ' ' << res;
-    cout << res;
 }

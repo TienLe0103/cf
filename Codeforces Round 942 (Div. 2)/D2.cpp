@@ -1,5 +1,5 @@
 /*
-    @date: 25 / 04 / 2024
+    @date: 30 / 04 / 2024
     @tienle0103
 */
 
@@ -34,8 +34,6 @@ cs in mxn = 1e6 +5;
 cs in oo = 0x7fffffff;
 cs in mod = 14062008;
 
-in n, res = 0;
-
 in gcd(in a, in b) {
     while (b != 0) {
         in tmp = b;
@@ -45,19 +43,34 @@ in gcd(in a, in b) {
     return a;
 }
 
-in lcm(in a, in b) {
-    return a * b / gcd(a, b);
+bool check(in x, in y) {
+    return gcd(x, y) == 1;
+}
+
+in find(in a, in b, in c, in d) {
+    return min(a / b - 1, c / d - b);
+}
+
+in solve(in n, in m) {
+    in res=  0;
+    frr (i, 1, sqrt(n)) 
+        frr (j, 1, find(n, i, m, j)) 
+            if (check(i, j)) {
+                in s = i + j; 
+                res += min(n / s / i, m / s / j); 
+            }
+    return res;
+}
+
+void phnm() {
+    in n, m; cin >> n >> m;
+    cout << solve(n, m) << '\n'; 
 }
 
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> n;
-    // in x = 0;
-    for (in i = 1; i <= n / 2; i ++) {
-        res = max(res, lcm(i, n - i));
-        // if (res == lcm(i, n - i))
-        //     x = i;
+    in t; cin >> t;
+    while (t--) {
+        phnm();
     }
-    // cout << x << ' ' << n - x << ' ' << res;
-    cout << res;
-}
+}   

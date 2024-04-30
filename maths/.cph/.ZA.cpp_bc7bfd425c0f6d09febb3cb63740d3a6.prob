@@ -1,0 +1,1 @@
+{"name":"Local: ZA","url":"d:\\aiosima\\cf\\maths\\ZA.cpp","tests":[{"id":1714036018168,"input":"10","output":"21"},{"id":1714036712616,"input":"277\n","output":"19182"},{"id":1714036814298,"input":"31901928","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\maths\\ZA.cpp","group":"local","local":true}

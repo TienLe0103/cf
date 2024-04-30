@@ -1,5 +1,5 @@
 /*
-    @date: 25 / 04 / 2024
+    @date: 30 / 04 / 2024
     @tienle0103
 */
 
@@ -34,30 +34,41 @@ cs in mxn = 1e6 +5;
 cs in oo = 0x7fffffff;
 cs in mod = 14062008;
 
-in n, res = 0;
+in t;
+in n, k;
+in a[mxn];
 
-in gcd(in a, in b) {
-    while (b != 0) {
-        in tmp = b;
-        b = a % b;
-        a = tmp;
-    }
-    return a;
+bool check(in m) {
+    in res = 0;
+    fr (i, 0, n) 
+        if (a[i] < m)
+            res += (m - a[i]);
+    return res <= k;
 }
 
-in lcm(in a, in b) {
-    return a * b / gcd(a, b);
+in search(in l, in r) {
+    in res = 0;
+    while (l <= r) {
+        in m = (l + r) / 2;
+        if (check(m)) l = m + 1, res = m;
+        else r = m - 1;
+    }
+    return res;
 }
 
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> n;
-    // in x = 0;
-    for (in i = 1; i <= n / 2; i ++) {
-        res = max(res, lcm(i, n - i));
-        // if (res == lcm(i, n - i))
-        //     x = i;
+    cin >> t;
+    while (t--) {
+        cin >> n >> k;
+        fr (i, 0, n) cin >> a[i];
+        in l = 1, r = 2e12;
+        in res = search(l, r);
+        in phnm = 0;
+        fr (i, 0, n) {
+            if (a[i] > res) phnm++;
+            else k -= res - a[i];
+        }
+        cout << res * n - (n - 1) + phnm + k << '\n';
     }
-    // cout << x << ' ' << n - x << ' ' << res;
-    cout << res;
 }
