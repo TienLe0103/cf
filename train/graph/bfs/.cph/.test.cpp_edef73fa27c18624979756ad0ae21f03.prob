@@ -1,0 +1,1 @@
+{"name":"Local: test","url":"d:\\aiosima\\cf\\graph\\BFS\\test.cpp","tests":[{"id":1715351738295,"input":"5 6\nB...*.\n..*...\n.**.*.\n..***.\n*..*.C","output":"9"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\graph\\BFS\\test.cpp","group":"local","local":true}

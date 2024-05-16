@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "vector": "cpp",
+        "cmath": "cpp",
+        "random": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "span": "cpp",
+        "stacktrace": "cpp",
+        "tuple": "cpp",
+        "forward_list": "cpp"
+    }
+}
