@@ -1,0 +1,1 @@
+{"name":"Local: T","url":"d:\\aiosima\\organization\\cf\\train\\mangdanhdau\\T.cpp","tests":[{"id":1718291574778,"input":"5\n1 2 4 3 3\n","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\organization\\cf\\train\\mangdanhdau\\T.cpp","group":"local","local":true}

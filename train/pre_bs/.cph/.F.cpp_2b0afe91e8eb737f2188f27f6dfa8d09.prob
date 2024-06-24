@@ -1,0 +1,1 @@
+{"name":"Local: F","url":"e:\\aiosima\\organization\\cf\\train\\pre_binarysearch\\F.cpp","tests":[{"id":1718893411920,"input":"4 3\n1 1 1 1\n","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\aiosima\\organization\\cf\\train\\pre_binarysearch\\F.cpp","group":"local","local":true}

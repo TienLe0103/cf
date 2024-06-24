@@ -1,5 +1,5 @@
 /*
-    @date: 23 . 06 . 2024
+    @date: 18 . 06 . 2024
     @tienle0103
 */
 
@@ -9,14 +9,12 @@
 #include <cstring>
 #include <vector>
 #include <map>
-#include <queue>
 
 using namespace std;
 
 #define int            long long
 #define fi             first
 #define se             second
-#define pb             push_back
 #define all(x)         x.begin(), x.end()
 #define rall(x)        x.rbegin(), x.rend()
 #define fr(x, l, r)    for (int x = l; x < r; x++)
@@ -31,35 +29,26 @@ typedef greater<int>   gi;
 typedef map<int, int>  mii;
 typedef pair<int, int> ii;
 
-cs int N   = 1e3 + 5;
+cs int N   = 501;
 cs int oo  = 1e18;
 
-int dx[] = {1, 2, 2, 1, -1, -2, -2, -1};
-int dy[] = {-2, -1, 1, 2, 2, 1, -1, -2};
-int n, m, dist[N][N];
-ii s, e;
-queue<ii> q;
-
-void bfs(ii s) {
-    frr (i, 1, n) frr (j, 1, m) dist[i][j] = -1;
-    q.push(s);
-    dist[s.fi][s.se] = 0;
-    while (!q.empty()) {
-        ii u = q.front();
-        q.pop();
-        fr (i, 0, 8) {
-            int x = u.fi + dx[i];
-            int y = u.se + dy[i];
-            if (dist[x][y] == -1) dist[x][y] = dist[u.fi][u.se] + 1, q.push({x, y}); 
-        }
-    }
-}
+int m, n, a[N][N], pre[N][N], cnt[9], res = 0;
 
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> n >> m;
-    cin >> s.fi >> s.se;
-    cin >> e.fi >> e.se;
-    bfs(s);
-    cout << dist[e.fi][e.se];
-}
+    cin >> m >> n;
+    frr (i, 1, m) frr (j, 1, n) cin >> a[i][j], pre[i][j] = pre[i - 1][j] + a[i][j];
+    frr (i, 1, m)   
+        frr (j, i, m) {
+            memset(cnt, 0, sizeof(cnt));
+            cnt[0] = 1;
+            int s = 0;
+            frr (k, 1, n) {
+                s += pre[j][k] - pre[i - 1][k];
+                s = (s % 9 + 9) % 9;
+                res += cnt[s];
+                cnt[s]++;
+            }
+        }
+    cout << res;
+}   

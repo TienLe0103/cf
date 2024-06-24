@@ -13,6 +13,8 @@
         "span": "cpp",
         "stacktrace": "cpp",
         "tuple": "cpp",
-        "forward_list": "cpp"
+        "forward_list": "cpp",
+        "queue": "cpp",
+        "algorithm": "cpp"
     }
 }

@@ -1,22 +1,20 @@
 /*
-    @date: 23 . 06 . 2024
+    @date: 15 . 06 . 2024
     @tienle0103
 */
 
 #include <iostream>
 #include <algorithm>
-#include <cmath>
-#include <cstring>
 #include <vector>
 #include <map>
 #include <queue>
+#include <cmath>
 
 using namespace std;
 
 #define int            long long
 #define fi             first
 #define se             second
-#define pb             push_back
 #define all(x)         x.begin(), x.end()
 #define rall(x)        x.rbegin(), x.rend()
 #define fr(x, l, r)    for (int x = l; x < r; x++)
@@ -31,35 +29,30 @@ typedef greater<int>   gi;
 typedef map<int, int>  mii;
 typedef pair<int, int> ii;
 
-cs int N   = 1e3 + 5;
+cs int N   = 1e6 + 5;
 cs int oo  = 1e18;
 
-int dx[] = {1, 2, 2, 1, -1, -2, -2, -1};
-int dy[] = {-2, -1, 1, 2, 2, 1, -1, -2};
-int n, m, dist[N][N];
-ii s, e;
-queue<ii> q;
-
-void bfs(ii s) {
-    frr (i, 1, n) frr (j, 1, m) dist[i][j] = -1;
-    q.push(s);
-    dist[s.fi][s.se] = 0;
-    while (!q.empty()) {
-        ii u = q.front();
-        q.pop();
-        fr (i, 0, 8) {
-            int x = u.fi + dx[i];
-            int y = u.se + dy[i];
-            if (dist[x][y] == -1) dist[x][y] = dist[u.fi][u.se] + 1, q.push({x, y}); 
-        }
-    }
-}
+int n, a[N], cnt[N], res = 0;
 
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> n >> m;
-    cin >> s.fi >> s.se;
-    cin >> e.fi >> e.se;
-    bfs(s);
-    cout << dist[e.fi][e.se];
+    cin >> n;
+    frr (i, 1, n) {
+        cin >> a[i];
+        cnt[a[i]]++;
+    }
+    res += cnt[4];
+    res += min(cnt[1], cnt[3]);
+    cnt[3] -= res - cnt[4];
+    cnt[1] -= res - cnt[4];
+    if (cnt[3] != 0) {
+        res += cnt[3];
+        if (cnt[2] % 2 == 0) res += cnt[2] / 2;
+        else {
+            int s = (2 * cnt[2] + cnt[1]);
+            if (s % 4 == 0) res += s / 4;
+            else res += s / 4 + 1;
+        }
+    }
+    cout << res;
 }

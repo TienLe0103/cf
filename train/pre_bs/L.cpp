@@ -1,5 +1,5 @@
 /*
-    @date: 23 . 06 . 2024
+    @date: 24 . 06 . 2024
     @tienle0103
 */
 
@@ -16,6 +16,7 @@ using namespace std;
 #define int            long long
 #define fi             first
 #define se             second
+#define pb             push_back
 #define all(x)         x.begin(), x.end()
 #define rall(x)        x.rbegin(), x.rend()
 #define fr(x, l, r)    for (int x = l; x < r; x++)
@@ -30,42 +31,31 @@ typedef greater<int>   gi;
 typedef map<int, int>  mii;
 typedef pair<int, int> ii;
 
-cs int N   = 1e3 + 5;
+cs int N   = 1e6 + 5;
 cs int oo  = 1e18;
 
-int dx[] = {1, 0, -1, 0};
-int dy[] = {0, 1, 0, -1};
-int n, m, dist[N][N];
-char a[N][N];
-queue<ii> q;
-ii s;
-
-void bfs(ii s) {
-    frr (i, 1, n) frr (j, 1, m) dist[i][j] = -1;
-    dist[s.fi][s.se] = 0;
-    q.push(s);
-    while (!q.empty()) {
-        ii u = q.front();
-        q.pop();
-        fr (i, 0, 4) {
-            int x = u.fi + dx[i];
-            int y = u.se + dy[i];
-            if (x < 1 || x > n) continue;
-            if (y < 1 || y > m) continue;
-            if (a[x][y] == '*') continue;
-            if (dist[x][y] == -1) dist[x][y] = dist[u.fi][u.se] + 1, q.push({x, y});
-        } 
-    }
-}
+int n, m, ta, tb, k, a[N], b[N], res = 0;
 
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> n >> m;
-    frr (i, 1, n) 
-        frr (j, 1, m) {
-            cin >> a[i][j];
-            if (a[i][j] == 'C') s = {i, j};
+    cin >> n >> m >> ta >> tb >> k;
+    frr (i, 1, n) cin >> a[i];
+    frr (i, 1, m) cin >> b[i];
+    if (k > min(n, m)) {
+        cout << "-1";
+        return 0;
+    }
+    frr (i, 1, min(k + 1, n)) {
+        int l = 1, r = m, pos;
+        while (l <= r) {
+            int mid = (l + r) / 2;
+            if (b[mid] >= a[i] + ta) pos = mid, r = mid - 1;
+            else l = mid + 1;
         }
-    bfs(s);
-    cout << dist[1][1];
+        if (pos + (k - (i - 1)) > m) {
+            cout << "-1";
+            return 0;
+        } else res = max(res, b[pos + (k - (i - 1))] + tb);
+    }
+    cout << res;
 }

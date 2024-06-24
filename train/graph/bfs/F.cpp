@@ -1,60 +1,52 @@
 /*
-    @date: 11 / 05 / 2024
+    @date: 23 . 06 . 2024
     @tienle0103
 */
 
 #include <iostream>
 #include <algorithm>
-#include <vector>
-#include <queue>
-#include <map>
-#include <string>
 #include <cmath>
+#include <cstring>
+#include <vector>
+#include <map>
+#include <queue>
 
 using namespace std;
 
-typedef         long long           ll;
-typedef         double              db;
-typedef         string              str;
-typedef         vector<int>         vi;
-typedef         greater<int>        gi;
-typedef         map<int, int>       mii;
-typedef         pair<int, int>      ii;
+#define int            long long
+#define fi             first
+#define se             second
+#define all(x)         x.begin(), x.end()
+#define rall(x)        x.rbegin(), x.rend()
+#define fr(x, l, r)    for (int x = l; x < r; x++)
+#define frr(x, l, r)   for (int x = l; x <= r; x++)
+#define fd(x, l, r)    for (int x = l; x >= r; x--)
+#define cs             const
 
-#define         fi                  first
-#define         se                  second
-#define         all(x)              x.begin(), x.end()
-#define         rall(x)             x.rbegin(), x.rend()
-#define         fr(x, l, r)         for (int x = l; x < r; x++)
-#define         frr(x, l, r)        for (int x = l; x <= r; x++)
-#define         frd(x, l, r)        for (int x = l; x >= r; x--)
-#define         cs                  const
+typedef double         db;
+typedef string         str;
+typedef vector<int>    vi;
+typedef greater<int>   gi;
+typedef map<int, int>  mii;
+typedef pair<int, int> ii;
 
-cs int mxn = 1e6 +5;
-cs int N = 1e3 + 5;
-cs int oo = 0x7fffffff;
+cs int N   = 1e6 + 5;
+cs int oo  = 1e18;
 
-int dx[] = {1, 0, -1, 0};
-int dy[] = {0, 1, 0, -1};
 int n, k;
 queue<int> q;
-priority_queue<int, vi, gi> pq;
-vector<bool> check(mxn, false);
-vi meet[mxn];
+vi meet[N], res;
+bool vst[N];
 
-void bfs(int s) {
-    q.push(s);
-    check[s] = true;
-    pq.push(s);
+void bfs(int start) {
+    vst[start] = true;
+    res.push_back(start);
+    q.push(start);
     while (!q.empty()) {
         int u = q.front();
         q.pop();
-        for (auto x : meet[u]) 
-            if (!check[x]) {
-                check[x] = true;
-                q.push(x);
-                pq.push(x);
-            }
+        for (int v : meet[u]) 
+            if (!vst[v]) vst[v] = true, q.push(v), res.push_back(v);
     }
 }
 
@@ -62,16 +54,14 @@ signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     cin >> n >> k;
     frr (i, 1, n) {
-        int x; cin >> x;
-        while (x--) {
-            int w; cin >> w;
-            meet[i].push_back(w);
+        int t; cin >> t;
+        while (t--) {
+            int x; cin >> x; 
+            meet[i].push_back(x);
         }
     }
     bfs(k);
-    cout << pq.size() << '\n';
-    while (!pq.empty()) {
-        cout << pq.top() << ' ';
-        pq.pop();
-    }
-}
+    sort(all(res));
+    cout << res.size() << '\n';
+    for (int x : res) cout << x << ' ';
+}   

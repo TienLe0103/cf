@@ -1,5 +1,5 @@
 /*
-    @date: 23 . 06 . 2024
+    @date: 24 . 06 . 2024
     @tienle0103
 */
 
@@ -31,35 +31,24 @@ typedef greater<int>   gi;
 typedef map<int, int>  mii;
 typedef pair<int, int> ii;
 
-cs int N   = 1e3 + 5;
+cs int N   = 1e6 + 5;
 cs int oo  = 1e18;
 
-int dx[] = {1, 2, 2, 1, -1, -2, -2, -1};
-int dy[] = {-2, -1, 1, 2, 2, 1, -1, -2};
-int n, m, dist[N][N];
-ii s, e;
-queue<ii> q;
+int n, k, a[N], l[N], r[N], res = 0;
 
-void bfs(ii s) {
-    frr (i, 1, n) frr (j, 1, m) dist[i][j] = -1;
-    q.push(s);
-    dist[s.fi][s.se] = 0;
-    while (!q.empty()) {
-        ii u = q.front();
-        q.pop();
-        fr (i, 0, 8) {
-            int x = u.fi + dx[i];
-            int y = u.se + dy[i];
-            if (dist[x][y] == -1) dist[x][y] = dist[u.fi][u.se] + 1, q.push({x, y}); 
-        }
-    }
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    else return gcd(b, a % b);
 }
 
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> n >> m;
-    cin >> s.fi >> s.se;
-    cin >> e.fi >> e.se;
-    bfs(s);
-    cout << dist[e.fi][e.se];
+    cin >> n >> k;
+    frr (i, 1, n) cin >> a[i];
+    l[1] = a[1]; 
+    frr (i, 2, n) l[i] = gcd(l[i - 1], a[i]);
+    r[n] = a[n];
+    fd (i, n - 1, 1) r[i] = gcd(r[i + 1], a[i]);
+    frr (i, 1, n - k + 1) res = max(res, gcd(l[i - 1], r[i + k]));
+    cout << res;
 }

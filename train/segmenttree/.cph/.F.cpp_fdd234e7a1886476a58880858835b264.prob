@@ -1,0 +1,1 @@
+{"name":"Local: F","url":"d:\\aiosima\\cf\\train\\segmenttree\\F.cpp","tests":[{"id":1716126626310,"input":"5\n2 1 4 3 5","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\train\\segmenttree\\F.cpp","group":"local","local":true}
