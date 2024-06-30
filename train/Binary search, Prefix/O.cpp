@@ -1,5 +1,5 @@
 /*
-    @date: 27 . 06 . 2024
+    @date: 25 . 06 . 2024
     @tienle0103
 */
 
@@ -34,24 +34,9 @@ typedef pair<int, int> ii;
 cs int N   = 1e6 + 5;
 cs int oo  = 1e18;
 
-int n, m, x, res = 0;
-vi a[N];
-bool vst[N];
-
-void dfs(int u) {
-    vst[u] = true;
-    for (auto v : a[u]) if (!vst[v]) dfs(v);    
-}
+int n, a[N], b[N];
 
 signed main() {
     ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-    cin >> n >> m >> x;
-    while (m--) {
-        int u, v, c; cin >> u >> v >> c;
-        if (c >= x) 
-            a[u].pb(v),
-            a[v].pb(u);
-    }        
-    frr (i, 1, n) if (!vst[i]) dfs(i), res++;
-    cout << res;
+
 }
