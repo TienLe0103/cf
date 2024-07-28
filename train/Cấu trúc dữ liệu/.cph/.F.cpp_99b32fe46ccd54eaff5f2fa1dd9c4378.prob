@@ -1,1 +1,0 @@
-{"name":"Local: F","url":"d:\\aiosima\\cf\\ctdl\\F.cpp","tests":[{"id":1715872784039,"input":"5\n5 2 4 4 6","output":"3 1 2 2 4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\ctdl\\F.cpp","group":"local","local":true}

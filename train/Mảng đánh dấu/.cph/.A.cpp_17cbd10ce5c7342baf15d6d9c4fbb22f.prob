@@ -1,1 +1,0 @@
-{"name":"Local: A","url":"d:\\aiosima\\cf\\train\\mangdanhdau\\A.cpp","tests":[{"id":1715873934922,"input":"5\n1 2 1 2 1\n3\n1\n2\n3","output":"3\n2\n0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\train\\mangdanhdau\\A.cpp","group":"local","local":true}

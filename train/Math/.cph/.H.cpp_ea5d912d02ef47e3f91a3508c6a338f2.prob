@@ -1,1 +1,0 @@
-{"name":"Local: H","url":"d:\\aiosima\\cf\\maths\\H.cpp","tests":[{"id":1712847807653,"input":"8\n2 55 23 16 53 5 20 17","output":"5 23 53 17 2"},{"id":1712847816437,"input":"3\n25 18 9","output":"-1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\maths\\H.cpp","group":"local","local":true}

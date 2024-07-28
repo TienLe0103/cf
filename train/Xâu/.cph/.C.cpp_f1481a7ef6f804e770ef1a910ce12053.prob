@@ -1,1 +1,0 @@
-{"name":"Local: C","url":"e:\\aiosima\\organization\\cf\\train\\str\\C.cpp","tests":[{"id":1719228113972,"input":"5 x\naxaxa\n","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\aiosima\\organization\\cf\\train\\str\\C.cpp","group":"local","local":true}

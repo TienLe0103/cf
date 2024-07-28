@@ -1,1 +1,0 @@
-{"name":"Local: G","url":"d:\\aiosima\\cf\\train\\mangdanhdau\\G.cpp","tests":[{"id":1715876942019,"input":"abacda\n","output":"a 3"},{"id":1715876951415,"input":"ccaa\n","output":"a 2"},{"id":1715877072705,"input":"el","output":"e 1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\train\\mangdanhdau\\G.cpp","group":"local","local":true}

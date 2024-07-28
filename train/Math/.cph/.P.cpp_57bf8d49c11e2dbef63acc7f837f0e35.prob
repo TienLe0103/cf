@@ -1,1 +1,0 @@
-{"name":"Local: P","url":"d:\\aiosima\\cf\\maths\\P.cpp","tests":[{"id":1713277232352,"input":"2\n3\n14","output":"14\n1015"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\maths\\P.cpp","group":"local","local":true}

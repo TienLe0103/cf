@@ -1,1 +1,0 @@
-{"name":"Local: C","url":"d:\\aiosima\\cf\\ctdl\\C.cpp","tests":[{"id":1715854841127,"input":"5\nab\nab\nba\nba\nac\n","output":"ab 2\nac 1\nba 2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\aiosima\\cf\\ctdl\\C.cpp","group":"local","local":true}
